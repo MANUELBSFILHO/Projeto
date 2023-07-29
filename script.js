@@ -43,3 +43,27 @@ function limparCampos() {
   qrCodesGerados = [];
   atualizarHistorico();
 }
+
+function enviarParaWhatsapp() {
+  var qrCodeImage = document.getElementById("qrcode").querySelector("img");
+
+  if (!qrCodeImage) {
+    alert("Por favor, gere o QR Code primeiro.");
+    return;
+  }
+
+  var qrCodeDataURL = qrCodeImage.src;
+  var textoQRCode = document.getElementById("texto").value;
+
+  if (!textoQRCode) {
+    alert("Por favor, insira um texto ou URL para gerar o QR Code.");
+    return;
+  }
+
+  // Codificar o texto do QR Code na URL de dados
+  var qrCodeDataURLWithMessage = qrCodeDataURL.replace("image/png", "image/octet-stream");
+  qrCodeDataURLWithMessage += "&text=" + encodeURIComponent(textoQRCode);
+
+  // Redirecionar para o WhatsApp com o código QRCode como mensagem
+  window.location.href = "whatsapp://send?text=" + encodeURIComponent(qrCodeDataURLWithMessage);
+}
