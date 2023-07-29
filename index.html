@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de QR Code com Histórico</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="logo-container">
+    <img src="img/logo.jpg" alt="Logo da Empresa">
+  </div>
+
+  <label for="texto">Digite o texto ou URL:</label>
+  <input type="text" id="texto" placeholder="Insira o texto aqui">
+  <button onclick="gerarQRCode()">Gerar QR Code</button>
+  <button onclick="limparCampos()">Limpar</button>
+
+  <div id="qrcode"></div>
+
+  <h2>Histórico de QR Codes gerados:</h2>
+  <ul id="historico"></ul>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
